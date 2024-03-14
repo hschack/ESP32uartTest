@@ -36,6 +36,8 @@ void setup()
   delay(5000);
   // +CGPADDR: 0,"10.9.18.110"
   // +CGPADDR: 1
+  SerialAT.println("AT+CGCONTRDP"); //Auto connect !! vent på IP adr
+  delay(10000); 
   SerialAT.println("AT+VIOSET=2"); //Set Module to 2.8V
   delay(1000);
   // OK
@@ -57,7 +59,7 @@ void setup()
   // +CEREG: 1 
   
   // OK
-  SerialAT.println("AT+CGDCONT=0,\"IP\",\"internet\""); //Set APN AT+CGDCONT= 0 -> 10 også prævet med "IP"
+  SerialAT.println("AT+CGDCONT=1,\"IP\",\"nbiot.tdc.dk\""); //Set APN AT+CGDCONT= 0 -> 10 også prævet med "IP"
   //SerialAT.println("AT+CGDCONT=1," + SettdcAPN); //Set APN AT+CGDCONT= 0 -> 10
   delay(5000);
   SerialAT.println("AT+CGCONTRDP"); //Auto connect !! vent på IP adr
